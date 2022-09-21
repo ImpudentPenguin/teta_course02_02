@@ -1,4 +1,4 @@
-package me.emakeeva.teta_course02_02
+package me.emakeeva.teta_course02_02.utils
 
 fun Int.month(): String {
     return when (this) {

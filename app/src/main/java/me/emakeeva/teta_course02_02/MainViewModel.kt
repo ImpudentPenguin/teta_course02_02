@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import me.emakeeva.teta_course02_02.model.CalendarModel
 import me.emakeeva.teta_course02_02.model.MainState
+import me.emakeeva.teta_course02_02.utils.month
 import kotlin.random.Random
 
 class MainViewModel : ViewModel() {

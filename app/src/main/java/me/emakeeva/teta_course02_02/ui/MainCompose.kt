@@ -1,4 +1,4 @@
-package me.emakeeva.teta_course02_02
+package me.emakeeva.teta_course02_02.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
@@ -19,7 +19,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import me.emakeeva.teta_course02_02.R
 import me.emakeeva.teta_course02_02.model.CalendarModel
+import me.emakeeva.teta_course02_02.utils.month
 import me.emakeeva.teta_course02_02.ui.theme.Green200
 import me.emakeeva.teta_course02_02.ui.theme.Typography
 
@@ -28,13 +30,21 @@ private const val DAY_IN_WEEK_COUNT = 7
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Calendar(calendar: CalendarModel, onClick: () -> Unit) {
+    val weeks = listOf("пн", "вт", "ср", "чт", "пт", "сб", "вс")
+
     Column(
         modifier = Modifier.padding(start = 8.dp, end = 8.dp, top = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         MonthHeader(title = "${calendar.month} ${calendar.year}")
-        WeekHeader()
         LazyVerticalGrid(cells = GridCells.Fixed(DAY_IN_WEEK_COUNT)) {
+            items(weeks) { item ->
+                Text(
+                    text = item.uppercase(),
+                    style = Typography.body2.copy(textAlign = TextAlign.Center),
+                )
+            }
+
             items(calendar.days.size + calendar.startIndex) { index ->
                 if (index >= calendar.startIndex) {
                     // немного колхозненько, но времени не хватило придумать получше :)
@@ -142,14 +152,6 @@ private fun MonthHeader(title: String) {
             contentDescription = "arrow right",
             tint = Color.Unspecified
         )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun WeekHeader() {
-    LazyRow {
-
     }
 }
 

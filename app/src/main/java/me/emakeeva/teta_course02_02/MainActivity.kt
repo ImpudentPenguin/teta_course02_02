@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.collectAsState
 import me.emakeeva.teta_course02_02.model.MainState
+import me.emakeeva.teta_course02_02.ui.Calendar
+import me.emakeeva.teta_course02_02.ui.Schedule
 import me.emakeeva.teta_course02_02.ui.theme.Teta_course02_02Theme
 
 class MainActivity : ComponentActivity() {
